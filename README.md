@@ -1,6 +1,6 @@
 # Docker Image Recipe Wizard
 
-## ## This repository allows you the creation of a docker container that has the following capabilities:
+## This repository allows you the creation of a docker container that has the following capabilities:
 * Running OpenGL accel. applications with nvidia-docker2 on a headless remote server system using cudaGL and VirtualGL.
 * Integration of a Lubuntu desktop environment that is accessed by connecting to a TurboVNC with noVNC.
 * Including CUDA.
