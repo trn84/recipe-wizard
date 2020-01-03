@@ -16,6 +16,7 @@ This is a small guide to have NVIDIA accelerated OpenGL support for nvidia-docke
 
 ### Install NVIDIA Driver from CUDA .run shell script
 Select OpenGL and driver install! Please also check that the driver fits the nvidia-docker driver volume!
+
 `sudo ./cuda10.0XXX.run`
 
 ### Check PCI BusID
@@ -32,6 +33,7 @@ EndSection
 ```
 
 Check the correct BusID in the Device part
+
 ```
 Section "Device"
         Identifier "Device0"
