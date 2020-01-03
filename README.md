@@ -6,4 +6,4 @@
 * Including CUDA.
 * Including on-demand: CuDNN, ROS, Gazebo, Python Deep-Learning Development, TensorRT.
 
-For a complete guide on how to use this project please follow my medium.com article: https://medium.com/p/6b19c665286d/edit
+For a complete guide on how to use this project please follow my medium.com article: https://medium.com/@trn84/running-opengl-cuda-applications-with-nvidia-docker2-on-a-remote-headless-gpu-system-6b19c665286d
