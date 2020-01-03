@@ -1,0 +1,10 @@
+#---------------------------------------------------------------------
+# Install TensorRT4 for Ubuntu 16.04 and CUDA 9.0 (no auto download possible rn)
+#---------------------------------------------------------------------
+COPY requirements/tensorRT4_1604_CUDA9.deb tensorrt.deb
+RUN dpkg -i tensorrt.deb && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    tensorrt \
+    python3-libnvinfer-doc \
+    uff-converter-tf && \
+    apt-get clean && \
+    rm -rf tensorrt.deb

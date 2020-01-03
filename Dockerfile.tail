@@ -1,0 +1,9 @@
+#---------------------------------------------------------------------
+# Startup
+#---------------------------------------------------------------------
+COPY requirements/launch.sh /opt/noVNC/utils/launch.sh
+COPY requirements/start_desktop.sh /usr/local/bin/start_desktop.sh
+
+# Uncomment for autostart of the VNC server
+#CMD /usr/local/bin/start_desktop.sh
+CMD /bin/bash

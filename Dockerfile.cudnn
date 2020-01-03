@@ -1,0 +1,14 @@
+#---------------------------------------------------------------------
+# Install CUDNN
+#---------------------------------------------------------------------
+
+RUN echo "deb https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu{LINUX_VERSION}/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
+
+LABEL com.nvidia.cudnn.version="{CUDNN_VERSION}"
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    libcudnn{CUDNN_MAIN_VERSION}={CUDNN_VERSION}-1+cuda{CUDA_VERSION} \
+    libcudnn{CUDNN_MAIN_VERSION}-dev={CUDNN_VERSION}-1+cuda{CUDA_VERSION} \
+    && rm -rf /var/lib/apt/lists/*
+
+

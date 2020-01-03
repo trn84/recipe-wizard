@@ -1,0 +1,38 @@
+#---------------------------------------------------------------------
+# Install ROS
+#---------------------------------------------------------------------
+RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    ros-{ROS_VERSION}-desktop-full \
+    ros-{ROS_VERSION}-tf2-sensor-msgs \
+    ros-{ROS_VERSION}-geographic-msgs \
+    ros-{ROS_VERSION}-move-base-msgs \
+    ros-{ROS_VERSION}-ackermann-msgs \
+    ros-{ROS_VERSION}-unique-id \
+    ros-{ROS_VERSION}-fake-localization \
+    ros-{ROS_VERSION}-joy \
+    ros-{ROS_VERSION}-imu-tools \
+    ros-{ROS_VERSION}-robot-pose-ekf \
+    ros-{ROS_VERSION}-grpc \
+    ros-{ROS_VERSION}-pcl-ros \
+    ros-{ROS_VERSION}-pcl-conversions \
+    ros-{ROS_VERSION}-controller-manager \
+    ros-{ROS_VERSION}-joint-state-controller \
+    ros-{ROS_VERSION}-effort-controllers \
+    && apt-get clean
+
+# catkin build tools
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    python-pyproj \
+    python-catkin-tools \
+    && apt-get clean
+
+#Fix locale (UTF8) issue https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y locales
+RUN locale-gen "en_US.UTF-8"
+
+# Finish
+RUN echo "source /opt/ros/{ROS_VERSION}/setup.bash" >> /root/.bashrc
+
