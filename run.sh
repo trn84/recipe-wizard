@@ -1,5 +1,8 @@
 #/bin/bash
 
+export DISPLAY=:0
+xinit &
+
 # Start the container
 nvidia-docker run -it \
 --name=super-container \

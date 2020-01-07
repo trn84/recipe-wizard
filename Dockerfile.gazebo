@@ -2,13 +2,14 @@
 # Upgrade Gazebo
 #---------------------------------------------------------------------
 
-ARG LIBSDFORMAT_VERSION=6
+ARG LIBSDFORMAT_VERSION=5
 
 RUN echo "deb http://packages.osrfoundation.org/gazebo/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list \
  && wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add - \
  && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    ros-{ROS_VERSION}-gazebo-ros-pkgs \
-    ros-{ROS_VERSION}-gazebo-ros-control \
+    ros-{ROS_VERSION}-gazebo{GAZEBO_VERSION}-plugins \
+    ros-{ROS_VERSION}-gazebo{GAZEBO_VERSION}-ros-pkgs \
+    ros-{ROS_VERSION}-gazebo{GAZEBO_VERSION}-ros-control \
     libpcap0.8-dev \
     gazebo{GAZEBO_VERSION}-plugin-base \
     gazebo{GAZEBO_VERSION}-common \
