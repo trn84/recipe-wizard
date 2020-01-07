@@ -1,10 +1,12 @@
 #/bin/bash
 
+# Create X11 Instance
 export DISPLAY=:0
 xinit &
 
 # Start the container
-nvidia-docker run -it \
+docker run -it \
+--runtime=nvidia \
 --name=super-container \
 --security-opt seccomp=unconfined \
 --init \
@@ -17,6 +19,8 @@ nvidia-docker run -it \
 -v /share-docker:/share-docker \
 recipe-wiz
 
+# Kill X11 Server
+pkill xinit
 
 # For sound?  
 #-v /run/user/1000/pulse:/run/user/1000/pulse 
