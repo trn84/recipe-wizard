@@ -27,7 +27,7 @@ opencv-python>=3.3.0.10
 nltk>=3.2.5
 gensim>=3.1.0
 sklearn
-tensorflow-gpu==1.15
+tensorflow-gpu==2.7.2
 Keras>=2.1.1
 keras-vis>=0.4.1
 lxml>=4.1.1
